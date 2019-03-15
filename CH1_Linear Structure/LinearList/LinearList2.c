@@ -64,3 +64,14 @@ bool Delete( List L, Position P )
         return true;
     }
 }
+
+/*在链表尾部加上一个节点,pRear表示指向链表尾部指针Rear的指针，双重指针避免值传递*/
+void Attach(ElementType D,PtrToLNode*pRear)
+{
+    PtrToLNode P;
+	P=(PtrToLNode)malloc(sizeof(struct LNode));
+	P->Data=D;
+	P->Next=NULL;
+	(*pRear)->Next=P;
+	(*pRear)=P;//修改尾部指针Rear的值	
+}
