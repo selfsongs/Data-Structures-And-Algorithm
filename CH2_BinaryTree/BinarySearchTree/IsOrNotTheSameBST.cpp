@@ -124,3 +124,21 @@ int Judge(Tree T,int N)
 	else
 	    return 1;
 }
+
+//清除T中各个结点的flag标志
+void ResetT(Tree T){
+	if(T->Left)
+	    ResetT(T->Left);
+	if(T->Right)
+	    ResetT(T->Right);
+	T->flag=0;
+} 
+
+//释放T的空间
+void FreeTree(Tree T){
+	if(T->Left)
+	    FreeTree(T->Left);
+	if(T->Right)
+	    FreeTree(T->Right);
+	free(T);
+}
